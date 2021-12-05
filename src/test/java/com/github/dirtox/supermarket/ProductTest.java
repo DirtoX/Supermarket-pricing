@@ -11,4 +11,10 @@ public class ProductTest {
         Product product = new Product("Product 1");
         assertEquals(product.getName(), "Product 1");
     }
+
+    @Test
+    public void product_should_have_a_price(){
+        Product product = new Product("Product 1");
+        assertEquals(product.getPrice(), "Product 1");
+    }
 }
