@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CartTest {
@@ -17,5 +18,7 @@ public class CartTest {
         CartItem cartItem = new CartItem(product1, new BigDecimal(2));
         Cart cart = new Cart();
         cart.addItem(cartItem);
+        cart.addItem(cartItem);
+        assertEquals(cart.getItemsNumber(), 2);
     }
 }
