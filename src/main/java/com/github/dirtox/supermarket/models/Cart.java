@@ -13,6 +13,14 @@ public class Cart {
         this.items.add(cartItem);
     }
 
+    public void removeItem(CartItem cartItem){
+        this.items.remove(cartItem);
+    }
+
+    public void removeItem(int index){
+        this.items.remove(index);
+    }
+
     public int getItemsNumber(){
         return this.items.size();
     }

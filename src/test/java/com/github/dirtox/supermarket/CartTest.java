@@ -27,7 +27,12 @@ public class CartTest {
         CartItem cartItem = new CartItem(product1, new BigDecimal(2));
         Cart cart = new Cart();
         cart.addItem(cartItem);
+        assertEquals(cart.getItemsNumber(), 1);
         cart.removeItem(cartItem);
+        assertEquals(cart.getItemsNumber(), 0);
+        cart.addItem(cartItem);
+        assertEquals(cart.getItemsNumber(), 1);
+        cart.removeItem(0);
         assertEquals(cart.getItemsNumber(), 0);
     }
 
