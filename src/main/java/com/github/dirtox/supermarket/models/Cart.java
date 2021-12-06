@@ -1,7 +1,6 @@
 package com.github.dirtox.supermarket.models;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Cart {
@@ -30,6 +29,10 @@ public class Cart {
     }
 
     public BigDecimal cashOut(){
-
+        BigDecimal total = BigDecimal.ZERO;
+        for(CartItem item : items){
+            total = total.add(item.getProduct().getPrice().multiply(item.getQuantity()));
+        }
+        return total;
     }
 }
