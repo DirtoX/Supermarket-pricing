@@ -45,7 +45,7 @@ public class CartTest {
     }
 
     @Test
-    public void cart_cashout(){
+    public void cart_cash_out(){
         Product product1 = new Product("Product 1", new BigDecimal(5));
         Product product2 = new Product("Product 2", new BigDecimal(10));
         CartItem cartItem1 = new CartItem(product1, new BigDecimal(3));
