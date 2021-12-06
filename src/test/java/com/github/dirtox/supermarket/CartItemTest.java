@@ -28,4 +28,11 @@ public class CartItemTest {
         assertFalse(cartItem1.isMass());
         assertTrue(cartItem2.isMass());
     }
+
+    @Test
+    public void cart_item_quantity_with_ounce_should_be_converted_to_pound(){
+        Product product = new Product("product1",new BigDecimal(50.5));
+        CartItem cartItem = new CartItem(product, new Quantity(true, new BigDecimal(1), OUNCE));
+        assertTrue(cartItem.getQuantity().compareTo(new BigDecimal(0.0625)) == 0);
+    }
 }
