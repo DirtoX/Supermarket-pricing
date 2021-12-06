@@ -63,7 +63,7 @@ public class CartTest {
     public void buy_x_for_y_price_strategy_should_work(){
         Product product1 = new Product("Product 1", new BigDecimal(5));
         Product product2 = new Product("Product 2", new BigDecimal(10));
-        Pricing pricing = new Pricing(PricingType.PACK_PRICE, 3, new BigDecimal(12));
+        Pricing pricing = new Pricing(PricingType.PACK_PRICE, 3, new BigDecimal(12), 0);
         CartItem cartItem1 = new CartItem(product1, new Quantity(false, new BigDecimal(4), null), pricing);
         CartItem cartItem2 = new CartItem(product2, new Quantity(false, new BigDecimal(3), null), null);
         Cart cart = new Cart();
@@ -76,13 +76,13 @@ public class CartTest {
     public void buy_x_get_z_price_strategy_should_work(){
         Product product1 = new Product("Product 1", new BigDecimal(5));
         Product product2 = new Product("Product 2", new BigDecimal(10));
-        Pricing pricing = new Pricing(PricingType.BONUS_ITEM, 3, null, 1);
-        CartItem cartItem1 = new CartItem(product1, new Quantity(false, new BigDecimal(4), null), pricing);
-        CartItem cartItem2 = new CartItem(product2, new Quantity(false, new BigDecimal(3), null), null);
+        Pricing pricing = new Pricing(PricingType.BONUS_ITEM, 2, null, 1);
+        CartItem cartItem1 = new CartItem(product1, new Quantity(false, new BigDecimal(6), null), pricing);
+        CartItem cartItem2 = new CartItem(product2, new Quantity(false, new BigDecimal(1), null), null);
         Cart cart = new Cart();
         cart.addItem(cartItem1);
         cart.addItem(cartItem2);
-        assertTrue(cart.cashOut().compareTo(new BigDecimal(47).setScale(2, RoundingMode.HALF_EVEN)) == 0);
+        assertTrue(cart.cashOut().compareTo(new BigDecimal(30).setScale(2, RoundingMode.HALF_EVEN)) == 0);
     }
 
 }
