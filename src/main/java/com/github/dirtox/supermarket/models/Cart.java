@@ -1,5 +1,6 @@
 package com.github.dirtox.supermarket.models;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -26,5 +27,9 @@ public class Cart {
 
     public int getItemsNumber(){
         return this.items.size();
+    }
+
+    public BigDecimal cashOut(){
+
     }
 }
