@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 public class CartItem {
     private final Product product;
     private Quantity quantity;
+    private final Pricing pricing;
 
     public void addQuantity(BigDecimal amount){
         this.quantity.addAmount(amount);
@@ -23,4 +24,8 @@ public class CartItem {
     }
 
     public Product getProduct(){ return this.product;}
+
+    public boolean havePricing(){ return pricing != null; }
+
+    public BigDecimal getPricingStrategy(){ return this.pricing.getPricingStrategy(this.product,this.quantity);}
 }

@@ -32,7 +32,8 @@ public class Cart {
     public BigDecimal cashOut(){
         BigDecimal total = BigDecimal.ZERO;
         for(CartItem item : items){
-            total = total.add(item.getProduct().getPrice().multiply(item.getQuantity()));
+            total = total.add(item.havePricing() ? item.getPricingStrategy() :
+                    item.getProduct().getPrice().multiply(item.getQuantity()));
         }
         return total.setScale(2, RoundingMode.HALF_EVEN);
     }
