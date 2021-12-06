@@ -1,24 +1,27 @@
 package com.github.dirtox.supermarket.models;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Cart {
-    private ArrayList<CartItem> items;
+    private HashSet<CartItem> items;
 
     public Cart(){
-        this.items = new ArrayList<CartItem>();
+        this.items = new HashSet<CartItem>();
     }
 
     public void addItem(CartItem cartItem){
-        this.items.add(cartItem);
+        if(!this.items.add(cartItem)){
+            this.items.forEach(t -> {
+                if(t.equals(cartItem)){
+                    t.addQuantity(cartItem.getQuantity());
+                }
+            });
+        }
     }
 
     public void removeItem(CartItem cartItem){
         this.items.remove(cartItem);
-    }
-
-    public void removeItem(int index){
-        this.items.remove(index);
     }
 
     public int getItemsNumber(){

@@ -9,5 +9,9 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class CartItem {
     private final Product product;
-    private final BigDecimal quantity;
+    private BigDecimal quantity;
+
+    public void addQuantity(BigDecimal amount){
+        this.quantity = this.quantity.add(amount);
+    }
 }
