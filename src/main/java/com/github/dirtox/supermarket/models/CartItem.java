@@ -5,13 +5,22 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
-@Data
 @AllArgsConstructor
 public class CartItem {
     private final Product product;
-    private BigDecimal quantity;
+    private Quantity quantity;
 
     public void addQuantity(BigDecimal amount){
-        this.quantity = this.quantity.add(amount);
+        this.quantity.addAmount(amount);
     }
+
+    public BigDecimal getQuantity(){
+        return this.quantity.getAmount();
+    }
+
+    public boolean isMass(){
+        return this.quantity.isMass();
+    }
+
+    public Product getProduct(){ return this.product;}
 }
