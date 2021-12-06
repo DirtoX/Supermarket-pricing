@@ -59,4 +59,17 @@ public class CartTest {
         assertTrue(cart.cashOut().compareTo(new BigDecimal(35.56).setScale(2, RoundingMode.HALF_EVEN)) == 0);
     }
 
+    @Test
+    public void buy_x_for_y_price_strategy_should_work(){
+        Product product1 = new Product("Product 1", new BigDecimal(5));
+        Product product2 = new Product("Product 2", new BigDecimal(10));
+        Pricing pricing = new Pricing();
+        CartItem cartItem1 = new CartItem(product1, new Quantity(false, new BigDecimal(3), null), pricing);
+        CartItem cartItem2 = new CartItem(product2, new Quantity(false, new BigDecimal(3), null));
+        Cart cart = new Cart();
+        cart.addItem(cartItem1);
+        cart.addItem(cartItem2);
+        assertTrue(cart.cashOut().compareTo(new BigDecimal(35.56).setScale(2, RoundingMode.HALF_EVEN)) == 0);
+    }
+
 }
