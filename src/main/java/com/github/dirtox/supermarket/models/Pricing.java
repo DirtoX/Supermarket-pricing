@@ -18,6 +18,10 @@ public class Pricing {
                 .add(product.getPrice().multiply(rest, new MathContext(4)));
     }
 
+    private BigDecimal buyXGetZ(Product product, Quantity quantity) {
+
+    }
+
     public BigDecimal getPricingStrategy(Product product, Quantity quantity){
         return this.buyXForY(product, quantity);
     }
