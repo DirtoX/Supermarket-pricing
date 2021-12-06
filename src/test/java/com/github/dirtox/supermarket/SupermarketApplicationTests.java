@@ -1,13 +1,11 @@
 package com.github.dirtox.supermarket;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.experimental.categories.Categories;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
-@SpringBootTest
-class SupermarketApplicationTests {
-
-    @Test
-    void contextLoads() {
-    }
+@RunWith(Categories.class)
+@Suite.SuiteClasses( { ProductTest.class, CartItemTest.class, CartTest.class })
+public class SupermarketApplicationTests {
 
 }
