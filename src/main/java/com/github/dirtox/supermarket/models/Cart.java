@@ -1,6 +1,7 @@
 package com.github.dirtox.supermarket.models;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.HashSet;
 
 public class Cart {
@@ -33,6 +34,6 @@ public class Cart {
         for(CartItem item : items){
             total = total.add(item.getProduct().getPrice().multiply(item.getQuantity()));
         }
-        return total;
+        return total.setScale(2, RoundingMode.HALF_EVEN);
     }
 }

@@ -7,6 +7,8 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 
+import static com.github.dirtox.supermarket.models.MassUnit.OUNCE;
+import static com.github.dirtox.supermarket.models.MassUnit.POUND;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -15,7 +17,7 @@ public class CartItemTest {
     @Test
     public void cart_item_should_have_product_quantity(){
         Product product = new Product("product1",new BigDecimal(50.5));
-        CartItem cartItem = new CartItem(product, new Quantity(false, new BigDecimal(5)));
+        CartItem cartItem = new CartItem(product, new Quantity(false, new BigDecimal(5), null));
         assertTrue(cartItem.getQuantity().compareTo(new BigDecimal(5)) == 0);
     }
 
@@ -23,8 +25,8 @@ public class CartItemTest {
     public void cart_item_quantity_should_be_unitary_or_mass(){
         Product product1 = new Product("product1",new BigDecimal(50.5));
         Product product2 = new Product("product2",new BigDecimal(20));
-        CartItem cartItem1 = new CartItem(product1, new Quantity(false, new BigDecimal(2)));
-        CartItem cartItem2 = new CartItem(product2, new Quantity(true, new BigDecimal(1.5)));
+        CartItem cartItem1 = new CartItem(product1, new Quantity(false, new BigDecimal(2), null));
+        CartItem cartItem2 = new CartItem(product2, new Quantity(true, new BigDecimal(1.5), POUND));
         assertFalse(cartItem1.isMass());
         assertTrue(cartItem2.isMass());
     }
