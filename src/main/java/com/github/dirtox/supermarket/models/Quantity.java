@@ -24,14 +24,10 @@ public class Quantity {
 
     public BigDecimal getAmount(){
         return massUnit == MassUnit.OUNCE ? this.converter.toPound(this.amount) : this.amount;
-//        return this.amount;
     }
 
     public MassUnit getMassUnit(){
         return this.massUnit;
     }
 
-//    public BigDecimal toPound(){
-//        return this.amount.divide(new BigDecimal(16),new MathContext(4));
-//    }
 }

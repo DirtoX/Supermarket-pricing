@@ -9,13 +9,13 @@ import java.math.MathContext;
 
 @AllArgsConstructor
 public class PackPricing implements PricingStrategy {
-    private final int x;
-    private final BigDecimal y;
+    private final int itemsBought;
+    private final BigDecimal packPrice;
     @Override
     public BigDecimal getPricing(Product product, Quantity quantity){
-        BigDecimal rest = quantity.getAmount().remainder(new BigDecimal(x));
-        return y.multiply(quantity.getAmount()
-                .subtract(rest).divide(new BigDecimal(x), new MathContext(4)))
+        BigDecimal rest = quantity.getAmount().remainder(new BigDecimal(itemsBought));
+        return packPrice.multiply(quantity.getAmount()
+                .subtract(rest).divide(new BigDecimal(itemsBought), new MathContext(4)))
                 .add(product.getPrice().multiply(rest, new MathContext(4)));
     }
 }

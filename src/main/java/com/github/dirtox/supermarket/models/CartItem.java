@@ -2,8 +2,6 @@ package com.github.dirtox.supermarket.models;
 
 import com.github.dirtox.supermarket.strategy.NormalPricing;
 import com.github.dirtox.supermarket.strategy.PricingStrategy;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 
 import java.math.BigDecimal;
 
